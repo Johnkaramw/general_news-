@@ -40,13 +40,14 @@ class HomePage extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 15),
         child: CustomScrollView(
           physics: BouncingScrollPhysics(),
-          slivers: [
+          slivers: const [
             SliverToBoxAdapter(child: CategoryListView()),
             SliverToBoxAdapter(
               child: SizedBox(
                 height: 22,
               ),
             ),
+            newslistview(),
           ],
         ),
       ),
