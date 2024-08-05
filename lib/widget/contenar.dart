@@ -26,7 +26,7 @@ class Contenar extends StatelessWidget {
             child: Text(
               category.text,
               style: TextStyle(
-                color: Color.fromARGB(255, 0, 0, 0),
+                color: Color.fromARGB(255, 255, 0, 0),
                 fontSize: 30,
               ),
             ),
