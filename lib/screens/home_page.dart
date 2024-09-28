@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/main.dart';
 import 'package:news_app/widget/categroy_listview.dart';
-import 'package:news_app/widget/contenar.dart';
-import 'package:news_app/widget/News_Top.dart';
 import 'package:news_app/widget/news_listview.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,43 +10,50 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: const Center(
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'News',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                'All',
-                style: TextStyle(
-                  color: Color.fromARGB(218, 115, 255, 0),
-                  fontSize: 35,
-                ),
-              ),
-            ],
-          ),
-        ),
+        title: const _AppBarTitle(),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: CustomScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           slivers: const [
             SliverToBoxAdapter(child: CategoryListView()),
             SliverToBoxAdapter(
-              child: SizedBox(
-                height: 22,
-              ),
+              child: SizedBox(height: 22),
             ),
-            newslistview(),
+            NewsListView(), // اسم الويدجت صحيح الآن
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _AppBarTitle extends StatelessWidget {
+  const _AppBarTitle();
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: const [
+          Text(
+            'News',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            'All',
+            style: TextStyle(
+              color: Color.fromARGB(218, 115, 255, 0),
+              fontSize: 35,
+            ),
+          ),
+        ],
       ),
     );
   }
